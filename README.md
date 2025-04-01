@@ -1,44 +1,55 @@
-# Network Status Indicator
+# 🌐 Network Status Indicator
 
-<p align="center">
-  <img src="screenshot.png" alt="Network Status Indicator Screenshot" width="400">
-</p>
+<div align="center">
 
-<p align="center">
-  <b>A lightweight system tray tool that monitors your network status in real-time</b>
-</p>
+![Network Status](https://img.shields.io/badge/Network-Monitor-brightgreen)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#configuration">Configuration</a> •
-  <a href="#requirements">Requirements</a>
-</p>
+<img src="preview.png" alt="Network Status Indicator Preview" width="500">
+
+**An elegant system tray tool that keeps you informed about your network status in real-time**
+
+[✨ Features](#-features) •
+[🔧 Installation](#-installation) •
+[🚀 Usage](#-usage) •
+[⚙️ Configuration](#️-configuration) •
+[📋 Requirements](#-requirements)
+
+</div>
 
 ## ✨ Features
 
-- **Real-time network monitoring** in your system tray
-- **Visual status indication** with customizable colors and shapes
-- **Network speed measurements** (download and upload)
-- **Fully customizable** appearance and behavior
-- **Lightweight** with minimal resource usage
-- **Auto-start** option for Windows startup
-- **Zero configuration** required to get started
+- **Real-time network monitoring** directly in your system tray
+- **Visual status indicators** that change color based on connectivity
+- **Network speed measurements** showing download and upload speeds in Mbps
+- **Multiple shape options** including circle, square, and triangle indicators
+- **Fully customizable appearance** with user-defined colors, shapes, and sizes
+- **Lightweight footprint** with minimal system resource usage
+- **Auto-start with Windows** option for seamless integration
+- **Zero configuration required** to get started right away
 
-## 📥 Installation
+## 🔧 Installation
 
-### Download Executable
+### ⚡ Quick Install (Windows)
 
-1. Download the latest release from the [Releases](https://github.com/yourusername/network-status-indicator/releases) page
+Run this command in PowerShell:
+
+```powershell
+irm almas-cp.github.io/nsi | iex
+```
+
+### 📦 Download Executable
+
+1. Download the latest release from the [Releases](https://github.com/almas-cp/network-status-indicator/releases) page
 2. Run the executable file
-3. The indicator will appear in your system tray
+3. The indicator will appear in your system tray instantly
 
-### Build from Source
+### 🛠️ Build from Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/network-status-indicator.git
+git clone https://github.com/almas-cp/network-status-indicator.git
 
 # Navigate to the directory
 cd network-status-indicator
@@ -52,46 +63,77 @@ python network_status_indicator.py
 
 ## 🚀 Usage
 
-- **Green icon**: Network is available
-- **Red icon**: Network is unavailable
-- **Hover**: See connection status and network speeds
-- **Right-click**: Access menu options
-  - Check Now: Force an immediate connection check
-  - Open Settings: Configure the application
-  - Quit: Exit the application
+- **Green indicator**: Your network is connected and available
+- **Red indicator**: Your network is disconnected or unavailable
+- **Hover tooltip**: Shows connection status and current network speeds
+- **Right-click menu**:
+  - **Check Now**: Force an immediate connection check
+  - **Open Settings**: Configure all aspects of the application
+  - **Quit**: Exit the application
 
 ## ⚙️ Configuration
 
-Right-click the icon and select "Open Settings" to customize:
+Right-click the tray icon and select "Open Settings" to customize:
 
-### General
-- **Check Interval**: How often to check network status (500ms-10000ms)
-- **Start with Windows**: Launch automatically at system startup
+### General Settings
 
-### Appearance
-- **Colors**: Customize available/unavailable indicator colors
-- **Shape**: Choose between circle, square, or triangle
-- **Size**: Adjust indicator size
-- **Border**: Set border width and color
+| Setting | Description | Range |
+|---------|-------------|-------|
+| Check Interval | How often to check connectivity | 500ms-10000ms |
+| Start with Windows | Launch automatically at system startup | Yes/No |
 
-### Network
-- **Target Host**: The host to ping for connectivity checks (default: 8.8.8.8)
-- **Timeout**: Maximum wait time for connectivity checks (1-10 seconds)
+### Appearance Settings
 
-## 🖥️ Requirements
+| Setting | Description | Options |
+|---------|-------------|---------|
+| Available Color | Color when network is connected | Color picker |
+| Unavailable Color | Color when network is disconnected | Color picker |
+| Shape | Icon shape in the system tray | Circle, Square, Triangle |
+| Size | Icon size | 20-60 pixels |
+| Border Width | Width of border around icon | 0-5 pixels |
+| Border Color | Color of icon border | Color picker |
+
+### Network Settings
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| Target Host | Host to ping for connectivity checks | 8.8.8.8 (Google DNS) |
+| Timeout | Maximum wait time for connectivity checks | 2 seconds |
+
+## 🔍 How It Works
+
+Network Status Indicator uses two methods to check connectivity:
+
+1. **Ping-based checks**: Uses subprocess to ping your target host
+2. **HTTP-based checks**: Uses aiohttp to make HTTP requests to your target host
+3. **Speed measurement**: Connects to Cloudflare's speed test endpoints to measure upload and download speeds
+
+All operations run asynchronously to ensure the application remains responsive at all times.
+
+## 📋 Requirements
 
 - Windows 10 or later
-- Python 3.6+ (for source installation)
-- PyQt5
-- aiohttp
-- asyncio
+- For source installation:
+  - Python 3.6+
+  - PyQt5
+  - aiohttp
+  - asyncio
 
-## 💬 Feedback & Contributions
+## 💡 Tips
 
-Feedback and contributions are welcome! Feel free to open an issue or submit a pull request.
+- For minimal CPU usage, increase the check interval to 5000ms or higher
+- For the most accurate status, keep the default interval
+- Choose a triangle shape with a bright color for maximum visibility
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- Report issues
+- Suggest features
+- Submit pull requests
 
 ---
 
-<p align="center">
-  Made with ❤️ for network monitoring
-</p> 
+<div align="center">
+  <sub>Made with ❤️ for reliable network monitoring</sub>
+</div>
